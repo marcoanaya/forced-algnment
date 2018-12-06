@@ -36,7 +36,7 @@ Usage of aeneas for the purpose of aligning _a single_ video recording to its co
 		    path/to/text.txt \
 		    "task_language=eng|is_text_type=plain|os_task_file_format=csv" \
 		    path/to/map.csv
-	* This can be run through a python [file](../task.py) as well
+	* This can be run through a python [file](task.py) as well
 	
 
 
