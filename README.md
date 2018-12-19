@@ -1,4 +1,4 @@
-# Forced Alignment LDP Project
+# Forced-Alignment LDP Project
 
 We are looking to facilitate the process of providing timestamps for a set of transcripts, given a set of corresponding videos. The goal is to reduce the amount of manual coding that needs to be done.
 
@@ -21,14 +21,14 @@ Useful websites to find more information, besides the repository, have been:
 ### Usage
 Usage of aeneas for the purpose of aligning _a single_ video recording to its corresponding transcript:
 * [*Supported file types can be found here!*](https://github.com/readbeyond/aeneas#supported-features)
-* Preparing input transcripts
+1. Preparing input transcripts
 	* Retrieve transcripts from database in a supported input format
-* Preparing input audio
+2. Preparing input audio
 	* Retrieve corresponding videos
 	* Convert video files to a supported input audio format using FFmpeg, an installed dependency for aeneas
 		* For example: `ffmpeg -i input_file.mov output_file.mp3`
 
-*  Run aeneas, inputting and audio file, text file, config string, and output file.  
+3.  Run aeneas, inputting and audio file, text file, config string, and output file.  
 	* Below is the most simple way of running aeneas, through the command line.
 		```
 		python -m aeneas.tools.execute_task \
@@ -36,7 +36,7 @@ Usage of aeneas for the purpose of aligning _a single_ video recording to its co
 		    path/to/text.txt \
 		    "task_language=eng|is_text_type=plain|os_task_file_format=csv" \
 		    path/to/map.csv
-	* This can be run through a python [file](task.py) as well
+	* Since aeneas works as a Python/C library, this can similarly be run through a Python file
 	
 
 
@@ -46,13 +46,13 @@ We found that there was sufficent background noise in our video recording that a
 
 
 #### SoX
-SoX
 
-* Install SoX:
+1. Install SoX:
 	* `sudo apt install sox libsox-fmt-*`
-* (Before running aeneas) Cleaning the videos through sox
+2. (Before running aeneas) Cleaning the videos through sox
 	*	`ffmpeg -i path/to/source.mp3 -vn -ss 00:00:18 -t 00:00:20 noisesample.wav`
 	* `sox source.mp3 path/to/output.mp3 noisered noise_profile_file 0.31`
 		
 Currently, we are still looking into improving how the process for forced-alignment, as the resulting timestamps do not consistently match actual values.
 
+This repository will contain scripts that outline the current process of following through these steps
