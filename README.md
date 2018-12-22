@@ -50,8 +50,10 @@ We found that there was sufficent background noise in our video recording that a
 1. Install SoX:
 	* `sudo apt install sox libsox-fmt-*`
 2. (Before running aeneas) Cleaning the videos through sox
-	*	`ffmpeg -i path/to/source.mp3 -vn -ss 00:00:18 -t 00:00:20 noisesample.wav`
-	* `sox source.mp3 path/to/output.mp3 noisered noise_profile_file 0.31`
+	* `ffmpeg -i path/to/source.mp3 -vn -ss 00:00:18 -t 00:00:20 noisesample.wav`
+	* `sox noisesample.wav -n noiseprof noise_profile_file`
+	* `sox source.mp3 path/to/output.mp3 noisered noise_profile_file 0.10`
+		* The last argument is a decimal less than one that represents the amount the source audio is noise-reduced
 		
 Currently, we are still looking into improving how the process for forced-alignment, as the resulting timestamps do not consistently match actual values.
 
